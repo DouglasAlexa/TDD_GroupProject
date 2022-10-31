@@ -34,7 +34,7 @@ public class Main {
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        graphics.drawString(T, 10, 20);
+        graphics.drawString("╭∩╮ (òÓ,) ╭∩╮", 10, 20);
 
         for (int y = 0; y < H; y++) {
             StringBuilder sb = new StringBuilder();
