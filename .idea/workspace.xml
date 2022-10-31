@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="Initial empty repository workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Questions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AddTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/RandomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="Initial empty repository workspace.xml" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +29,11 @@
     "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.RandomTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -87,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667212114142</updated>
-      <workItem from="1667212115823" duration="650000" />
+      <workItem from="1667212115823" duration="994000" />
     </task>
     <task id="LOCAL−00001" summary="Initial empty repository">
       <created>1667212171310</created>
@@ -107,7 +102,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1667212527350</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Initial empty repository workspace.xml">
+      <created>1667212848803</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1667212848803</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
