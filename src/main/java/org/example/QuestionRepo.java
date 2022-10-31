@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface QuestionRepo {
 
     Optional<Questions> add(Questions questions);
-    Questions delete(Integer id);
+    Questions delete(Integer id) throws DoesNotExistException;
     Questions getQuestion(Integer id) throws DoesNotExistException;
     Collection<Questions> getAllQuestions();
     String update(Integer id);

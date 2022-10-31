@@ -1,6 +1,7 @@
 import org.example.InMemory;
 import org.example.QuestionRepo;
 import org.example.Questions;
+import org.example.exceptions.DoesNotExistException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -39,6 +40,11 @@ public class DeleteTest {
     @DisplayName("Try remove null throw null pointer")
     void deleteThrowNullPointer(){
         Assertions.assertThrows(NullPointerException.class, () -> repo.delete(null));
+    }
+    @Test
+    @DisplayName("delete throw exception")
+    void deleteThrowException(){
+        Assertions.assertThrows(DoesNotExistException.class, () -> repo.delete(234234));
     }
 
 }
