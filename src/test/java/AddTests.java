@@ -22,5 +22,10 @@ public class AddTests {
         repo.add(questions);
         Assertions.assertEquals(1, repo.count());
     }
+    @Test
+    @DisplayName("add question not null ")
+    void addQuestionNotNull() {
+        Assertions.assertThrows(NullPointerException.class,() -> repo.add(null));
+    }
 }
 
