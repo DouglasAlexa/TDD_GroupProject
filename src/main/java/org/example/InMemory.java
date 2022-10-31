@@ -25,7 +25,8 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Questions getQuestion(Integer id) {
-        return null;
+        Questions value = data.get(id);
+        return value;
     }
 
     @Override
