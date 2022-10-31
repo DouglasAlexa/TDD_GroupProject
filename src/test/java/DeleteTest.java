@@ -25,4 +25,14 @@ public class DeleteTest {
 
         Assertions.assertEquals(0,repo.count());
     }
+    @Test
+    @DisplayName("Delete returns removed question")
+    void deleteReturnRemovedQuestion(){
+
+        Questions question = new Questions(1, "What is life?", new String[] {"Coffee", "Coding", "Pizza"}, "Studiegrupp 7" );
+
+        repo.add(question);
+
+        Assertions.assertEquals(question,repo.delete(1));
+    }
 }
