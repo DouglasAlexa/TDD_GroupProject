@@ -38,7 +38,7 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Collection<Questions> getAllQuestions() {
-        return null;
+        return this.data.values();
     }
 
     @Override
