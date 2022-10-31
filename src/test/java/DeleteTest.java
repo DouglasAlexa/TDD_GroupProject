@@ -35,4 +35,10 @@ public class DeleteTest {
 
         Assertions.assertEquals(question,repo.delete(1));
     }
+    @Test
+    @DisplayName("Try remove null throw null pointer")
+    void deleteThrowNullPointer(){
+        Assertions.assertThrows(NullPointerException.class, () -> repo.delete(null));
+    }
+
 }

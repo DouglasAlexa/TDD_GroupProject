@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first test commit (delete question)">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="second implementation commit (delete question)">
+      <change beforePath="$PROJECT_DIR$/src/test/java/DeleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DeleteTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.DeleteTest.deleteReturnRemovedQuestion">
+  <component name="RunManager" selected="JUnit.DeleteTest.deleteThrowNullPointer">
     <configuration name="DeleteTest.deleteQuestionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -65,6 +64,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DeleteTest" />
       <option name="METHOD_NAME" value="deleteReturnRemovedQuestion" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeleteTest.deleteThrowNullPointer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD_GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DeleteTest" />
+      <option name="METHOD_NAME" value="deleteThrowNullPointer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,22 +98,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TDD_GroupProject" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GetTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeleteTest.deleteThrowNullPointer" />
         <item itemvalue="JUnit.DeleteTest.deleteReturnRemovedQuestion" />
         <item itemvalue="JUnit.DeleteTest.deleteQuestionById" />
         <item itemvalue="JUnit.GetAllTests" />
         <item itemvalue="JUnit.GetAllTests.getAllQuestions" />
-        <item itemvalue="JUnit.GetTests" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +191,25 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1667224341518</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="first implementation commit (delete question)">
+      <created>1667224575452</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1667224575452</updated>
+    </task>
+    <task id="LOCAL−00014" summary="second test commit (delete question)">
+      <created>1667224907880</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1667224907880</updated>
+    </task>
+    <task id="LOCAL−00015" summary="second implementation commit (delete question)">
+      <created>1667224958219</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1667224958219</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +238,9 @@
     <MESSAGE value="First test commit (get all questions)." />
     <MESSAGE value="First implementation commit (get all questions)." />
     <MESSAGE value="first test commit (delete question)" />
-    <option name="LAST_COMMIT_MESSAGE" value="first test commit (delete question)" />
+    <MESSAGE value="first implementation commit (delete question)" />
+    <MESSAGE value="second test commit (delete question)" />
+    <MESSAGE value="second implementation commit (delete question)" />
+    <option name="LAST_COMMIT_MESSAGE" value="second implementation commit (delete question)" />
   </component>
 </project>
