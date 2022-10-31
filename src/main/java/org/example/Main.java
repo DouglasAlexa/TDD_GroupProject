@@ -19,13 +19,10 @@ public class Main {
     */
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+
         int L = 500;
         int H = 100;
-        if (in.hasNextLine()) {
-            in.nextLine();
-        }
-        String T = in.nextLine();
+
 
         BufferedImage image = new BufferedImage(L, H, BufferedImage.TYPE_INT_RGB);
         Graphics g = image.getGraphics();
