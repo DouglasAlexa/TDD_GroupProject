@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment=" second test commit(add question)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/GetAllTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="First implementation commit (get all questions).">
+      <change beforePath="$PROJECT_DIR$/src/test/java/GetAllTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GetAllTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.GetAllTests.getAllQuestions">
+  <component name="RunManager" selected="JUnit.GetAllTests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="TDD_GroupProject" />
@@ -102,8 +101,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GetAllTests.getAllQuestions" />
         <item itemvalue="JUnit.GetAllTests" />
+        <item itemvalue="JUnit.GetAllTests.getAllQuestions" />
         <item itemvalue="JUnit.GetTests" />
         <item itemvalue="JUnit.AddTests" />
         <item itemvalue="Application.Main" />
@@ -175,7 +174,19 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1667222085936</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="First test commit (get all questions).">
+      <created>1667223318156</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1667223318156</updated>
+    </task>
+    <task id="LOCAL−00011" summary="First implementation commit (get all questions).">
+      <created>1667223425626</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1667223425626</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +212,8 @@
     <MESSAGE value="first implementation commit (get questions)" />
     <MESSAGE value="second test commit (get questions)" />
     <MESSAGE value="second implementation commit (get questions)" />
-    <option name="LAST_COMMIT_MESSAGE" value="second implementation commit (get questions)" />
+    <MESSAGE value="First test commit (get all questions)." />
+    <MESSAGE value="First implementation commit (get all questions)." />
+    <option name="LAST_COMMIT_MESSAGE" value="First implementation commit (get all questions)." />
   </component>
 </project>

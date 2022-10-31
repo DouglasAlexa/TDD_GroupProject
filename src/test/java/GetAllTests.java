@@ -36,4 +36,12 @@ public class GetAllTests {
 
         Assertions.assertEquals(5, result.size());
     }
+
+    @Test
+    @DisplayName("Get all questions should return empty Collection")
+    void getAllQuestionsShouldReturnEmpty() {
+        Collection<Questions> result = repo.getAllQuestions();
+
+        Assertions.assertEquals(0, result.size());
+    }
 }
