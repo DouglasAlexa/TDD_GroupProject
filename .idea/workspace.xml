@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="second test commit (get questions)">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="second implementation commit (get questions)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GetTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GetTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +49,12 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.GetTests">
+  <component name="RunManager" selected="JUnit.GetTests.getSpecificQuestionIdIsNotNull">
     <configuration name="AddTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AddTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddTests.addQuestionNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TDD_GroupProject" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddTests" />
-      <option name="METHOD_NAME" value="addQuestionNotNull" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,13 +88,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GetTests.getSpecificQuestionIdIsNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD_GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GetTests" />
+      <option name="METHOD_NAME" value="getSpecificQuestionIdIsNotNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GetTests.getSpecificQuestionIdIsNotNull" />
         <item itemvalue="JUnit.GetTests" />
         <item itemvalue="JUnit.GetTests.getSpecificQuestionDontExist" />
         <item itemvalue="JUnit.GetTests.getQuestion" />
         <item itemvalue="JUnit.AddTests" />
-        <item itemvalue="JUnit.AddTests.addQuestionNotNull" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +167,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1667221875343</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="second implementation commit (get questions)">
+      <created>1667222085936</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1667222085936</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +198,7 @@
     <MESSAGE value="first test commit (get questions)" />
     <MESSAGE value="first implementation commit (get questions)" />
     <MESSAGE value="second test commit (get questions)" />
-    <option name="LAST_COMMIT_MESSAGE" value="second test commit (get questions)" />
+    <MESSAGE value="second implementation commit (get questions)" />
+    <option name="LAST_COMMIT_MESSAGE" value="second implementation commit (get questions)" />
   </component>
 </project>

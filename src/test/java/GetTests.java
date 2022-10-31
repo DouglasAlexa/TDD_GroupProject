@@ -35,4 +35,14 @@ public class GetTests {
 
         Assertions.assertThrows(DoesNotExistException.class, () -> repo.getQuestion(45));
     }
+
+    @Test
+    @DisplayName("Get specific question ID is not null")
+    void getSpecificQuestionIdIsNotNull() {
+        Questions question = new Questions(1, "What is life?", new String[] {"Coffee", "Coding", "Pizza"}, "Studiegrupp 7" );
+
+        repo.add(question);
+
+        Assertions.assertThrows(NullPointerException.class, () -> repo.getQuestion(null));
+    }
 }
