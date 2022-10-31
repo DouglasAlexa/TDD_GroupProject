@@ -22,6 +22,7 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Questions delete(Integer id) {
+        //commit already solve this problem before test
         Questions toRemove = data.get(id);
         data.remove(id);
         return toRemove;
