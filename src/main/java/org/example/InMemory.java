@@ -38,6 +38,7 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Collection<Questions> getAllQuestions() {
+        /* No implementation for empty list is needed */
         return this.data.values();
     }
 
