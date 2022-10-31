@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.exceptions.DoesNotExistException;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +26,10 @@ public class InMemory implements QuestionRepo{
     }
 
     @Override
-    public Questions getQuestion(Integer id) {
+    public Questions getQuestion(Integer id) throws DoesNotExistException {
+        if (!data.containsKey(id)) {
+            throw new DoesNotExistException("Question with id " + id + " does not exist.");
+        }
         Questions value = data.get(id);
         return value;
     }

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first implementation commit (get questions)">
-      <change beforePath="$PROJECT_DIR$/src/test/java/GetTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GetTests.java" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="second test commit (get questions)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.GetTests.getSpecificQuestionDontExist">
+  <component name="RunManager" selected="JUnit.GetTests">
     <configuration name="AddTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -99,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GetTests.getSpecificQuestionDontExist" />
         <item itemvalue="JUnit.GetTests" />
+        <item itemvalue="JUnit.GetTests.getSpecificQuestionDontExist" />
         <item itemvalue="JUnit.GetTests.getQuestion" />
         <item itemvalue="JUnit.AddTests" />
         <item itemvalue="JUnit.AddTests.addQuestionNotNull" />
@@ -160,7 +161,13 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1667221506221</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="second test commit (get questions)">
+      <created>1667221875343</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1667221875343</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +191,7 @@
     <MESSAGE value=" second test commit(add question)" />
     <MESSAGE value="first test commit (get questions)" />
     <MESSAGE value="first implementation commit (get questions)" />
-    <option name="LAST_COMMIT_MESSAGE" value="first implementation commit (get questions)" />
+    <MESSAGE value="second test commit (get questions)" />
+    <option name="LAST_COMMIT_MESSAGE" value="second test commit (get questions)" />
   </component>
 </project>

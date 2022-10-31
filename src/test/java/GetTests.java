@@ -18,7 +18,7 @@ public class GetTests {
 
     @Test
     @DisplayName("Get specific question by ID")
-    void getQuestion() {
+    void getQuestion() throws DoesNotExistException {
         Questions question = new Questions(1, "What is life?", new String[] {"Coffee", "Coding", "Pizza"}, "Studiegrupp 7" );
 
         repo.add(question);
