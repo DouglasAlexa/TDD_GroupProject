@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="Initial empty repository workspace.xml" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="Initial empty repository workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +18,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2Gte3wq7pU2F62Wpro4JzVM5kka" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -26,14 +35,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/JavaUtvecklare skolan/java programering skola/TDD/grupp2/TDD_GroupProject",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-  </component>
   <component name="RunManager" selected="JUnit.RandomTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
@@ -82,7 +88,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667212114142</updated>
-      <workItem from="1667212115823" duration="994000" />
+      <workItem from="1667212115823" duration="650000" />
+      <workItem from="1667213003503" duration="899000" />
     </task>
     <task id="LOCAL−00001" summary="Initial empty repository">
       <created>1667212171310</created>
@@ -102,13 +109,7 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1667212527350</updated>
     </task>
-    <task id="LOCAL−00004" summary="Initial empty repository workspace.xml">
-      <created>1667212848803</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1667212848803</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
