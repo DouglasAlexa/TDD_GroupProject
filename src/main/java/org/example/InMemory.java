@@ -11,7 +11,8 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Optional<Questions> add(Questions questions) {
-        return Optional.empty();
+        data.put(questions.getId(), questions);
+        return Optional.ofNullable(questions);
     }
 
     @Override
