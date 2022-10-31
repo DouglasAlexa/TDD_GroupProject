@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="Initial empty repository workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/test/java/DeleteTest.java" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first test commit (delete question)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/QuestionRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +184,13 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1667223425626</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="first test commit (delete question)">
+      <created>1667224341518</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1667224341518</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +218,7 @@
     <MESSAGE value="second implementation commit (get questions)" />
     <MESSAGE value="First test commit (get all questions)." />
     <MESSAGE value="First implementation commit (get all questions)." />
-    <option name="LAST_COMMIT_MESSAGE" value="First implementation commit (get all questions)." />
+    <MESSAGE value="first test commit (delete question)" />
+    <option name="LAST_COMMIT_MESSAGE" value="first test commit (delete question)" />
   </component>
 </project>

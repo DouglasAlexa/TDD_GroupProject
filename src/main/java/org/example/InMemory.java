@@ -21,8 +21,10 @@ public class InMemory implements QuestionRepo{
     }
 
     @Override
-    public String delete(Integer id) {
-        return null;
+    public Questions delete(Integer id) {
+        Questions toRemove = data.get(id);
+        data.remove(id);
+        return toRemove;
     }
 
     @Override
