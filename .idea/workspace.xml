@@ -49,7 +49,7 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.GetTests.getSpecificQuestionIdIsNotNull">
+  <component name="RunManager" selected="JUnit.GetTests">
     <configuration name="AddTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -100,8 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GetTests.getSpecificQuestionIdIsNotNull" />
         <item itemvalue="JUnit.GetTests" />
+        <item itemvalue="JUnit.GetTests.getSpecificQuestionIdIsNotNull" />
         <item itemvalue="JUnit.GetTests.getSpecificQuestionDontExist" />
         <item itemvalue="JUnit.GetTests.getQuestion" />
         <item itemvalue="JUnit.AddTests" />
