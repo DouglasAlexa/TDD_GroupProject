@@ -11,6 +11,9 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Optional<Questions> add(Questions questions) {
+        if(questions == null){
+            throw new NullPointerException("question can not be null");
+        }
         data.put(questions.getId(), questions);
         return Optional.ofNullable(questions);
     }
