@@ -28,7 +28,7 @@ public class DeleteTest {
     }
     @Test
     @DisplayName("Delete returns removed question")
-    void deleteReturnRemovedQuestion(){
+    void deleteReturnRemovedQuestion() throws DoesNotExistException {
 
         Questions question = new Questions(1, "What is life?", new String[] {"Coffee", "Coding", "Pizza"}, "Studiegrupp 7" );
 
@@ -44,6 +44,7 @@ public class DeleteTest {
     @Test
     @DisplayName("delete throw exception")
     void deleteThrowException(){
+
         Assertions.assertThrows(DoesNotExistException.class, () -> repo.delete(234234));
     }
 

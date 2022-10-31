@@ -21,7 +21,15 @@ public class InMemory implements QuestionRepo{
     }
 
     @Override
-    public Questions delete(Integer id) {
+    public Questions delete(Integer id) throws DoesNotExistException {
+
+         if(id == null) {
+            throw new NullPointerException("can't remove question with id null");
+        }
+         else if(!data.containsKey(id)){
+            throw new DoesNotExistException("question do not exist");
+        }
+
         //commit already solve this problem before test
         Questions toRemove = data.get(id);
         data.remove(id);

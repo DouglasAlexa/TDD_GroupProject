@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="third test commit (delete question)">
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="four implementation commit (delete question)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DeleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DeleteTest.java" afterDir="false" />
     </list>
@@ -49,7 +50,16 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.DeleteTest.deleteThrowException">
+  <component name="RunManager" selected="JUnit.DeleteTest">
+    <configuration name="DeleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD_GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DeleteTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DeleteTest.deleteQuestionById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -90,22 +100,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetAllTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TDD_GroupProject" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GetAllTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeleteTest" />
+        <item itemvalue="JUnit.DeleteTest.deleteQuestionById" />
         <item itemvalue="JUnit.DeleteTest.deleteThrowException" />
         <item itemvalue="JUnit.DeleteTest.deleteThrowNullPointer" />
         <item itemvalue="JUnit.DeleteTest.deleteReturnRemovedQuestion" />
-        <item itemvalue="JUnit.DeleteTest.deleteQuestionById" />
-        <item itemvalue="JUnit.GetAllTests" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +217,13 @@
       <option name="presentableId" value="LOCAL−00016" />
       <updated>1667225139239</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL−00017" summary="four test commit (delete question)">
+      <created>1667225659167</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1667225659167</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +256,8 @@
     <MESSAGE value="second test commit (delete question)" />
     <MESSAGE value="second implementation commit (delete question)" />
     <MESSAGE value="third test commit (delete question)" />
-    <option name="LAST_COMMIT_MESSAGE" value="third test commit (delete question)" />
+    <MESSAGE value="four test commit (delete question)" />
+    <MESSAGE value="four implementation commit (delete question)" />
+    <option name="LAST_COMMIT_MESSAGE" value="four implementation commit (delete question)" />
   </component>
 </project>
