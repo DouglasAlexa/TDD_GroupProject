@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="third implementation commit (get questions)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/ServiceTest.java" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first service implementation commit (add question)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exceptions/AlreadyExistsException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +222,19 @@
       <option name="presentableId" value="LOCAL−00017" />
       <updated>1667225659167</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL−00018" summary="first service test commit (add question)">
+      <created>1667291202246</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1667291202246</updated>
+    </task>
+    <task id="LOCAL−00019" summary="first service implementation commit (add question)">
+      <created>1667291400277</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1667291400277</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +269,8 @@
     <MESSAGE value="third test commit (delete question)" />
     <MESSAGE value="four test commit (delete question)" />
     <MESSAGE value="four implementation commit (delete question)" />
-    <option name="LAST_COMMIT_MESSAGE" value="four implementation commit (delete question)" />
+    <MESSAGE value="first service test commit (add question)" />
+    <MESSAGE value="first service implementation commit (add question)" />
+    <option name="LAST_COMMIT_MESSAGE" value="first service implementation commit (add question)" />
   </component>
 </project>
