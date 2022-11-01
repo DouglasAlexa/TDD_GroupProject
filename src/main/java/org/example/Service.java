@@ -17,7 +17,10 @@ public class Service  {
 
     public Questions addQuestion(int id, String question, String[] answers, String correctAnswer) throws DoesNotExistException, AlreadyExistsException {
         Optional<Questions> existing = Optional.ofNullable(repo.getQuestion(id));
-        if (existing.isPresent()) {
+        if (question == null || answers == null || correctAnswer == null) {
+            throw new NullPointerException("Inputs can not be null");
+        }
+        else if (existing.isPresent()) {
             throw new AlreadyExistsException();
         }
         Questions newQuestion = new Questions(id, question, answers, correctAnswer);

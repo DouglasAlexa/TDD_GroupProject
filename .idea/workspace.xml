@@ -48,7 +48,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ServiceTest.addQuestionUsingServiceClassNotNull">
+  <component name="RunManager" selected="JUnit.ServiceTest">
     <configuration name="DeleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -99,8 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ServiceTest.addQuestionUsingServiceClassNotNull" />
         <item itemvalue="JUnit.ServiceTest" />
+        <item itemvalue="JUnit.ServiceTest.addQuestionUsingServiceClassNotNull" />
         <item itemvalue="JUnit.ServiceTest.addQuestionUsingServiceClass" />
         <item itemvalue="JUnit.DeleteTest" />
         <item itemvalue="JUnit.DeleteTest.deleteQuestionById" />
