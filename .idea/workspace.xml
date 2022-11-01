@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="four implementation commit (delete question)">
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="third implementation commit (get questions)">
+      <change afterPath="$PROJECT_DIR$/src/test/java/ServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DeleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DeleteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.DeleteTest">
+  <component name="RunManager" selected="JUnit.ServiceTest.addQuestionUsingServiceClass">
     <configuration name="DeleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -65,16 +65,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DeleteTest" />
       <option name="METHOD_NAME" value="deleteQuestionById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeleteTest.deleteReturnRemovedQuestion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TDD_GroupProject" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DeleteTest" />
-      <option name="METHOD_NAME" value="deleteReturnRemovedQuestion" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -100,13 +90,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServiceTest.addQuestionUsingServiceClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD_GroupProject" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest" />
+      <option name="METHOD_NAME" value="addQuestionUsingServiceClass" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServiceTest.addQuestionUsingServiceClass" />
         <item itemvalue="JUnit.DeleteTest" />
         <item itemvalue="JUnit.DeleteTest.deleteQuestionById" />
         <item itemvalue="JUnit.DeleteTest.deleteThrowException" />
         <item itemvalue="JUnit.DeleteTest.deleteThrowNullPointer" />
-        <item itemvalue="JUnit.DeleteTest.deleteReturnRemovedQuestion" />
       </list>
     </recent_temporary>
   </component>
