@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="four implementation commit (delete question)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DeleteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DeleteTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="four implementation commit (delete question)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,6 +116,7 @@
       <updated>1667212114142</updated>
       <workItem from="1667212115823" duration="650000" />
       <workItem from="1667213003503" duration="899000" />
+      <workItem from="1667289790439" duration="526000" />
     </task>
     <task id="LOCAL−00001" summary="Initial empty repository">
       <created>1667212171310</created>
@@ -223,7 +220,13 @@
       <option name="presentableId" value="LOCAL−00017" />
       <updated>1667225659167</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL−00018" summary="four implementation commit (delete question)">
+      <created>1667227503690</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1667227503690</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
