@@ -33,8 +33,10 @@ public class Service  {
         }
         return repo.getQuestion(id);
     }
-    public Questions delete(Integer id){
-        return null;
+    public Questions delete(Integer id) throws DoesNotExistException {
+        Questions removed = repo.getQuestion(id);
+        repo.delete(id);
+        return removed;
     }
 }
 
