@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.Optional;
@@ -75,5 +76,13 @@ public class ServiceTest {
         Assertions.assertEquals(questions.getQuestion(),removed.getQuestion());
         Assertions.assertEquals(questions.getAnswer(),removed.getAnswer());
         Assertions.assertEquals(questions.getCorrectAnswer(),removed.getCorrectAnswer());
+    }
+    @Test
+    @DisplayName("Delete throw not exist")
+    void deleteThrowNotExist() throws DoesNotExistException {
+        int id = 1;
+        Mockito.when(repo.getQuestion(id)).thenReturn(null);
+        Assertions.assertThrows(DoesNotExistException.class,() -> service.delete(id));
+        Mockito.verify(repo, Mockito.never()).delete(id);
     }
 }
