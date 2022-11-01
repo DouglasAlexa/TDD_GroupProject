@@ -38,4 +38,11 @@ public class ServiceTest {
         Assertions.assertThrows(AlreadyExistsException.class, () -> service.addQuestion(1, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
         Mockito.verify(repo, Mockito.never()).add(Mockito.any(Questions.class));
     }
+
+    @Test
+    @DisplayName("Add question not null")
+    void addQuestionUsingServiceClassNotNull() {
+        Assertions.assertThrows(NullPointerException.class, () -> service.addQuestion(1, null, new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        Mockito.verify(repo, Mockito.never()).add(Mockito.any(Questions.class));
+    }
 }
