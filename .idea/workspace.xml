@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="second service implementation commit (add question)">
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first test commit (get question)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest.java" afterDir="false" />
     </list>
@@ -245,7 +246,13 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1667292275489</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="first test commit (get question)">
+      <created>1667294138711</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1667294138711</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +291,7 @@
     <MESSAGE value="first service implementation commit (add question)" />
     <MESSAGE value="second service test commit (add question)&#10;also added AlreadyExistsException.java" />
     <MESSAGE value="second service implementation commit (add question)" />
-    <option name="LAST_COMMIT_MESSAGE" value="second service implementation commit (add question)" />
+    <MESSAGE value="first test commit (get question)" />
+    <option name="LAST_COMMIT_MESSAGE" value="first test commit (get question)" />
   </component>
 </project>

@@ -49,7 +49,7 @@ public class ServiceTest {
     @DisplayName("Get question using service class")
     void getQuestionUsingServiceClass() throws DoesNotExistException {
         Questions questions = Assertions.assertDoesNotThrow(() -> service.addQuestion(1, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
-        //Mockito.verify(repo).getQuestion(questions.getId());
+       Mockito.when(repo.getQuestion(questions.getId())).thenReturn(questions);
     Assertions.assertEquals(questions,service.getQuestion(1));
     }
 }

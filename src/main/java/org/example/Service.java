@@ -27,8 +27,8 @@ public class Service  {
         repo.add(newQuestion);
         return newQuestion;
     }
-    public  Questions getQuestion(int id){
-        return null;
+    public  Questions getQuestion(int id) throws DoesNotExistException {
+        return repo.getQuestion(id);
     }
 }
 
