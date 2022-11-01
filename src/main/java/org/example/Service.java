@@ -27,7 +27,10 @@ public class Service  {
         repo.add(newQuestion);
         return newQuestion;
     }
-    public  Questions getQuestion(int id) throws DoesNotExistException {
+    public  Questions getQuestion(Integer id) throws DoesNotExistException {
+        if (repo.getQuestion(id) == null) {
+            throw new  DoesNotExistException("Question does not exist");
+        }
         return repo.getQuestion(id);
     }
 }

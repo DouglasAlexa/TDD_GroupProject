@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first implementation commit (get question)">
-      <change beforePath="$PROJECT_DIR$/src/test/java/ServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest.java" afterDir="false" />
+    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="second test commit (get question)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +257,13 @@
       <option name="presentableId" value="LOCAL−00023" />
       <updated>1667294880829</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL−00024" summary="second test commit (get question)">
+      <created>1667295644595</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1667295644595</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +304,7 @@
     <MESSAGE value="second service implementation commit (add question)" />
     <MESSAGE value="first test commit (get question)" />
     <MESSAGE value="first implementation commit (get question)" />
-    <option name="LAST_COMMIT_MESSAGE" value="first implementation commit (get question)" />
+    <MESSAGE value="second test commit (get question)" />
+    <option name="LAST_COMMIT_MESSAGE" value="second test commit (get question)" />
   </component>
 </project>
