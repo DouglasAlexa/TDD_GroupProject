@@ -59,4 +59,21 @@ public class ServiceTest {
         Assertions.assertThrows(DoesNotExistException.class,() -> service.getQuestion(1));
 
     }
+    @Test
+    @DisplayName("Delete by id")
+    void deleteById() throws DoesNotExistException {
+        // given
+        int id = 1;
+        Questions questions = new Questions(id,"1234",new String[]{"1","2","3"},"4");
+        Mockito.when(repo.getQuestion(id)).thenReturn(questions);
+        //when
+        Questions removed = Assertions.assertDoesNotThrow(() -> service.delete(id));
+        //then
+        Mockito.verify(repo).delete(id);
+        Assertions.assertNotNull(removed);
+        Assertions.assertEquals(id,removed.getId());
+        Assertions.assertEquals(questions.getQuestion(),removed.getQuestion());
+        Assertions.assertEquals(questions.getAnswer(),removed.getAnswer());
+        Assertions.assertEquals(questions.getCorrectAnswer(),removed.getCorrectAnswer());
+    }
 }

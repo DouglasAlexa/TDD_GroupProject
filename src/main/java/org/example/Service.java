@@ -33,6 +33,9 @@ public class Service  {
         }
         return repo.getQuestion(id);
     }
+    public Questions delete(Integer id){
+        return null;
+    }
 }
 
 
