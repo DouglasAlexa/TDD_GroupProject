@@ -52,4 +52,11 @@ public class ServiceTest {
        Mockito.when(repo.getQuestion(questions.getId())).thenReturn(questions);
     Assertions.assertEquals(questions,service.getQuestion(1));
     }
+    @Test
+    @DisplayName("Question does not exist")
+    void getQuestionUsingServiceClassDoesNotExist() throws DoesNotExistException {
+        Mockito.when(repo.getQuestion(1)).thenReturn(null);
+        Assertions.assertThrows(DoesNotExistException.class,() -> service.getQuestion(1));
+        Mockito.verify(repo,Mockito.never()).getQuestion(1);
+    }
 }
