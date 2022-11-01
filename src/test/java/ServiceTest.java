@@ -45,4 +45,11 @@ public class ServiceTest {
         Assertions.assertThrows(NullPointerException.class, () -> service.addQuestion(1, null, new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
         Mockito.verify(repo, Mockito.never()).add(Mockito.any(Questions.class));
     }
+    @Test
+    @DisplayName("Get question using service class")
+    void getQuestionUsingServiceClass() throws DoesNotExistException {
+        Questions questions = Assertions.assertDoesNotThrow(() -> service.addQuestion(1, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        //Mockito.verify(repo).getQuestion(questions.getId());
+    Assertions.assertEquals(questions,service.getQuestion(1));
+    }
 }
