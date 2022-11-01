@@ -34,6 +34,9 @@ public class Service  {
         return repo.getQuestion(id);
     }
     public Questions delete(Integer id) throws DoesNotExistException {
+        if (repo.getQuestion(id) == null) {
+            throw new  DoesNotExistException("Question does not exist");
+        }
         Questions removed = repo.getQuestion(id);
         repo.delete(id);
         return removed;
