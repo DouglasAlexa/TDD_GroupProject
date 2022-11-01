@@ -50,7 +50,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ServiceTest.addQuestionUsingServiceClass">
+  <component name="RunManager" selected="JUnit.ServiceTest">
     <configuration name="DeleteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
@@ -80,12 +80,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeleteTest.deleteThrowNullPointer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD_GroupProject" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DeleteTest" />
-      <option name="METHOD_NAME" value="deleteThrowNullPointer" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,11 +101,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServiceTest" />
         <item itemvalue="JUnit.ServiceTest.addQuestionUsingServiceClass" />
         <item itemvalue="JUnit.DeleteTest" />
         <item itemvalue="JUnit.DeleteTest.deleteQuestionById" />
         <item itemvalue="JUnit.DeleteTest.deleteThrowException" />
-        <item itemvalue="JUnit.DeleteTest.deleteThrowNullPointer" />
       </list>
     </recent_temporary>
   </component>

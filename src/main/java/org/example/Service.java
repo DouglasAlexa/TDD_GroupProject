@@ -12,7 +12,9 @@ public class Service  {
     }
 
     public Questions addQuestion(int id, String question, String[] answers, String correctAnswer) {
-        return null;
+        Questions newQuestion = new Questions(id, question, answers, correctAnswer);
+        repo.add(newQuestion);
+        return newQuestion;
     }
 }
 
