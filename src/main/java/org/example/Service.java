@@ -3,6 +3,7 @@ package org.example;
 import org.example.exceptions.AlreadyExistsException;
 import org.example.exceptions.DoesNotExistException;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -40,6 +41,10 @@ public class Service  {
         Questions removed = repo.getQuestion(id);
         repo.delete(id);
         return removed;
+    }
+
+    public Collection<Questions> getAllQuestions() {
+        return repo.getAllQuestions();
     }
 }
 

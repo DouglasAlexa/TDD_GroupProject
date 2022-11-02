@@ -7,10 +7,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class ServiceTest {
 
@@ -85,4 +90,19 @@ public class ServiceTest {
         Assertions.assertThrows(DoesNotExistException.class,() -> service.delete(id));
         Mockito.verify(repo, Mockito.never()).delete(id);
     }
+
+   /* @Test
+    @DisplayName("Get all questions")
+    void getAllQuestions() {
+        Questions questions1 = Assertions.assertDoesNotThrow(() -> service.addQuestion(1, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        Questions questions2 = Assertions.assertDoesNotThrow(() -> service.addQuestion(2, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        Questions questions3 = Assertions.assertDoesNotThrow(() -> service.addQuestion(3, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        Questions questions4 = Assertions.assertDoesNotThrow(() -> service.addQuestion(4, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        Questions questions5 = Assertions.assertDoesNotThrow(() -> service.addQuestion(5, "vad heter jag", new String[]{"David", "Dennis", "Douglas"}, "Konstantin"));
+        Mockito.when(service.getAllQuestions()).thenReturn(List.of(questions1, questions2, questions3, questions4, questions5));
+        Collection<Questions> questionsList = service.getAllQuestions();
+        Assertions.assertEquals(questionsList, );
+        Mockito.verify(repo).getAllQuestions();
+        *//*Assertions.assertEquals(5, repo.count());*//*
+    }*/
 }
