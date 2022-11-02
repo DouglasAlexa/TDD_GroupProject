@@ -29,8 +29,8 @@ public class ControllerTests {
     }
 
     @Test
-    @DisplayName("Service should create question without fail")
-    void serviceAddQuestionDoesNotThrow() throws DoesNotExistException, AlreadyExistsException {
+    @DisplayName("Controller should create question without fail")
+    void controllerAddQuestionDoesNotThrow() throws DoesNotExistException, AlreadyExistsException {
         //Given
         Questions question = new Questions(5, "What is love?", new String[]{"Baby", "Dont", "Hurt"}, "Me");
         String output = gson.toJson(question);
@@ -42,6 +42,18 @@ public class ControllerTests {
         //Then
         Mockito.verify(context).status(HttpStatus.CREATED);
         Mockito.verify(context).json(output);
+    }
+
+    @Test
+    @DisplayName("Controller should return Bad Request if invalid data")
+    void ifRequestDataNull() throws DoesNotExistException, AlreadyExistsException {
+        //Given
+        //When
+        Mockito.when(context.body()).thenReturn(null);
+        controller.add(context);
+        //Then
+        Mockito.verify(context).status(HttpStatus.BAD_REQUEST);
+        Mockito.verify(context).result("Bad Request");
     }
 
 }
