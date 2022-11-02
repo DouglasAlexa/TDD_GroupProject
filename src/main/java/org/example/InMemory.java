@@ -38,11 +38,11 @@ public class InMemory implements QuestionRepo{
 
     @Override
     public Questions getQuestion(Integer id) throws DoesNotExistException {
-        if (id == null) {
+        /*if (id == null) {
             throw new NullPointerException("Can't get question with ID NULL");
         } else if (!data.containsKey(id)) {
             throw new DoesNotExistException("Question with id " + id + " does not exist.");
-        }
+        }*/
         Questions value = data.get(id);
         return value;
     }

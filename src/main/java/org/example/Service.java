@@ -21,12 +21,14 @@ public class Service  {
         if (question == null || answers == null || correctAnswer == null) {
             throw new NullPointerException("Inputs can not be null");
         }
-        else if (existing.isPresent()) {
+        else if (!existing.isPresent()) {
+            Questions newQuestion = new Questions(id, question, answers, correctAnswer);
+            repo.add(newQuestion);
+            return newQuestion;
+        }
+        else {
             throw new AlreadyExistsException();
         }
-        Questions newQuestion = new Questions(id, question, answers, correctAnswer);
-        repo.add(newQuestion);
-        return newQuestion;
     }
     public  Questions getQuestion(Integer id) throws DoesNotExistException {
         if (repo.getQuestion(id) == null) {
