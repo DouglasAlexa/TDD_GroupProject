@@ -1,16 +1,23 @@
 package org.example;
 
+import com.google.gson.Gson;
 import io.javalin.http.Context;
 
 public class Controller {
 
-    private final QuestionRepo repo;
+    private final Service service;
+    private final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
 
-    public Controller(QuestionRepo repo) {
-        this.repo = repo;
+    public Controller(Service service) {
+        this.service = service;
+    }
+    public void add(Context context){
     }
 
-    public String add(Context context){
-        return null;
+    public void delete(Context context) {
     }
+
+    public void getQuestion(Context context){}
+
+    public void getAllQuestions(Context context){}
 }
