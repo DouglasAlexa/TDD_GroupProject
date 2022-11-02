@@ -22,7 +22,7 @@ public class ControllerTests {
 
     @BeforeEach
     void setup() {
-        gson = new Gson().newBuilder().setPrettyPrinting().create();
+        gson = new Gson();
         context = Mockito.mock(Context.class);
         service = Mockito.mock(Service.class);
         controller = new Controller(service);
@@ -31,11 +31,15 @@ public class ControllerTests {
     @Test
     @DisplayName("Service should create question without fail")
     void serviceAddQuestionDoesNotThrow() throws DoesNotExistException, AlreadyExistsException {
-        Questions question = new Questions(5, "What is love?", new String[]{"Baby", "Don't", "Hurt"}, "Me");
+        //Given
+        Questions question = new Questions(5, "What is love?", new String[]{"Baby", "Dont", "Hurt"}, "Me");
         String output = gson.toJson(question);
-        String json = "{\"id\":\"5\", \"question\":\"What is love?\", \"answer\":[\"Baby\", \"Don't\", \"Hurt\"], \"correctAnswer\":\"Me\"}";
+        String json = "{\"id\":5,\"question\":\"What is love?\",\"answer\":[\"Baby\",\"Dont\",\"Hurt\"],\"correctAnswer\":\"Me\"}";
+        //When
         Mockito.when(context.body()).thenReturn(json);
+        Mockito.when(service.addQuestion(question.getId(), question.getQuestion(), question.getAnswer(), question.getCorrectAnswer())).thenReturn(question);
         controller.add(context);
+        //Then
         Mockito.verify(context).status(HttpStatus.CREATED);
         Mockito.verify(context).json(output);
     }
