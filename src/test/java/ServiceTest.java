@@ -7,15 +7,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
+
 
 public class ServiceTest {
 
@@ -68,13 +63,13 @@ public class ServiceTest {
     @Test
     @DisplayName("Delete by id")
     void deleteById() throws DoesNotExistException {
-        // given
+
         int id = 1;
         Questions questions = new Questions(id,"1234",new String[]{"1","2","3"},"4");
         Mockito.when(repo.getQuestion(id)).thenReturn(questions);
-        //when
+
         Questions removed = Assertions.assertDoesNotThrow(() -> service.delete(id));
-        //then
+
         Mockito.verify(repo).delete(id);
         Assertions.assertNotNull(removed);
         Assertions.assertEquals(id,removed.getId());

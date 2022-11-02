@@ -42,6 +42,20 @@ public class Main {
                 continue;
             }
             System.out.println(sb);
+
+
         }
+        QuestionRepo repo = new InMemory();
+        Service service = new Service(repo);
+        Controller controller = new Controller(service);
+
+        createApp(controller).start(8080);
+    }
+    public static Javalin createApp(Controller controller){
+        return Javalin.create()
+                .get("/question/{id}",controller::getQuestion)
+                .get("/question",controller::getAllQuestions)
+                .post("/create",controller::add)
+                .delete("/delete/{id}",controller::delete);
     }
 }

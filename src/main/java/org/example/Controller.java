@@ -6,6 +6,8 @@ import org.example.exceptions.AlreadyExistsException;
 import org.example.exceptions.DoesNotExistException;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Optional;
 
 public class Controller {
 
@@ -22,7 +24,7 @@ public class Controller {
             context.status(HttpStatus.BAD_REQUEST);
             context.result("Bad Request");
         } else {
-            Integer id = questions.getId();
+            int id = questions.getId();
             String question = questions.getQuestion();
             String[] answers = questions.getAnswer();
             String correctAnswer = questions.getCorrectAnswer();
@@ -33,10 +35,42 @@ public class Controller {
         }
     }
 
-    public void delete(Context context) {
+    public void delete(Context context) throws DoesNotExistException {
+        Integer id = Integer.valueOf(context.pathParam("id"));
+        Questions questions = service.getQuestion(id);
+        if(questions != null){
+            context.status(HttpStatus.OK);
+            service.delete(id);
+            context.result("Question with id: " + id + " was removed");
+        }
+        else {
+            context.status(HttpStatus.NOT_FOUND);
+            context.result("Can't find question with id: " + id);
+            System.out.println("Can't find question with id: " + id);
+        }
     }
 
-    public void getQuestion(Context context){}
+    public void getQuestion(Context context) throws DoesNotExistException {
+        Integer id = Integer.valueOf(context.pathParam("id"));
+        Questions questions = service.getQuestion(id);
+        if(questions != null){
+            String jsonString = gson.toJson(service.getQuestion(id));
+            context.status(HttpStatus.OK);
+            context.result(jsonString);
+            System.out.println(jsonString);
+        }
+        else {
+            context.status(HttpStatus.NOT_FOUND);
+            context.result("Can't find question with id: " + id);
+            System.out.println("Can't find question with id: " + id);
+        }
+    }
 
-    public void getAllQuestions(Context context){}
+    public void getAllQuestions(Context context){
+        Collection<Questions> questions = service.getAllQuestions();
+        String jsonString = gson.toJson(questions);
+        context.status(HttpStatus.OK);
+        context.json(questions);
+        System.out.println(jsonString);
+    }
 }

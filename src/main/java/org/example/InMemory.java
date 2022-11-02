@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public class InMemory implements QuestionRepo{
 
-    private Map<Integer,Questions> data = new HashMap<>();
+    private final Map<Integer,Questions> data = new HashMap<>();
 
     @Override
     public Optional<Questions> add(Questions questions) {

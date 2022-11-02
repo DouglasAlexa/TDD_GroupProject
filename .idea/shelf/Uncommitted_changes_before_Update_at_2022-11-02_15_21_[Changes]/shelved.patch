@@ -1,0 +1,171 @@
+Index: src/test/java/ServiceTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.example.QuestionRepo;\r\nimport org.example.Questions;\r\nimport org.example.Service;\r\nimport org.example.exceptions.AlreadyExistsException;\r\nimport org.example.exceptions.DoesNotExistException;\r\nimport org.junit.jupiter.api.Assertions;\r\nimport org.junit.jupiter.api.BeforeEach;\r\nimport org.junit.jupiter.api.DisplayName;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.junit.jupiter.params.provider.Arguments;\r\nimport org.junit.jupiter.params.provider.MethodSource;\r\nimport org.mockito.Mock;\r\nimport org.mockito.Mockito;\r\n\r\nimport java.util.Collection;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\nimport java.util.stream.Stream;\r\n\r\npublic class ServiceTest {\r\n\r\n    QuestionRepo repo;\r\n    Service service;\r\n\r\n    @BeforeEach\r\n    void setup() {\r\n        repo = Mockito.mock(QuestionRepo.class);\r\n        service = new Service(repo);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Add question using service class\")\r\n    void addQuestionUsingServiceClass() {\r\n        Questions questions = Assertions.assertDoesNotThrow(() -> service.addQuestion(1, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Mockito.verify(repo).add(Mockito.any(Questions.class));\r\n        Assertions.assertNotNull(questions);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Add question no duplicates\")\r\n    void addQuestionUsingServiceClassNoDuplicates() throws DoesNotExistException {\r\n        Questions question = new Questions(1, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\");\r\n        Mockito.when(repo.getQuestion(1)).thenReturn(question);\r\n        Assertions.assertThrows(AlreadyExistsException.class, () -> service.addQuestion(1, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Mockito.verify(repo, Mockito.never()).add(Mockito.any(Questions.class));\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Add question not null\")\r\n    void addQuestionUsingServiceClassNotNull() {\r\n        Assertions.assertThrows(NullPointerException.class, () -> service.addQuestion(1, null, new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Mockito.verify(repo, Mockito.never()).add(Mockito.any(Questions.class));\r\n    }\r\n    @Test\r\n    @DisplayName(\"Get question using service class\")\r\n    void getQuestionUsingServiceClass() throws DoesNotExistException {\r\n        Questions questions = Assertions.assertDoesNotThrow(() -> service.addQuestion(1, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n       Mockito.when(repo.getQuestion(questions.getId())).thenReturn(questions);\r\n    Assertions.assertEquals(questions,service.getQuestion(1));\r\n    }\r\n    @Test\r\n    @DisplayName(\"Question does not exist\")\r\n    void getQuestionUsingServiceClassDoesNotExist() throws DoesNotExistException {\r\n        Mockito.when(repo.getQuestion(1)).thenReturn(null);\r\n        Assertions.assertThrows(DoesNotExistException.class,() -> service.getQuestion(1));\r\n\r\n    }\r\n    @Test\r\n    @DisplayName(\"Delete by id\")\r\n    void deleteById() throws DoesNotExistException {\r\n        // given\r\n        int id = 1;\r\n        Questions questions = new Questions(id,\"1234\",new String[]{\"1\",\"2\",\"3\"},\"4\");\r\n        Mockito.when(repo.getQuestion(id)).thenReturn(questions);\r\n        //when\r\n        Questions removed = Assertions.assertDoesNotThrow(() -> service.delete(id));\r\n        //then\r\n        Mockito.verify(repo).delete(id);\r\n        Assertions.assertNotNull(removed);\r\n        Assertions.assertEquals(id,removed.getId());\r\n        Assertions.assertEquals(questions.getQuestion(),removed.getQuestion());\r\n        Assertions.assertEquals(questions.getAnswer(),removed.getAnswer());\r\n        Assertions.assertEquals(questions.getCorrectAnswer(),removed.getCorrectAnswer());\r\n    }\r\n    @Test\r\n    @DisplayName(\"Delete throw not exist\")\r\n    void deleteThrowNotExist() throws DoesNotExistException {\r\n        int id = 1;\r\n        Mockito.when(repo.getQuestion(id)).thenReturn(null);\r\n        Assertions.assertThrows(DoesNotExistException.class,() -> service.delete(id));\r\n        Mockito.verify(repo, Mockito.never()).delete(id);\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Get all questions\")\r\n    void getAllQuestions() {\r\n        Questions questions1 = Assertions.assertDoesNotThrow(() -> service.addQuestion(1, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Questions questions2 = Assertions.assertDoesNotThrow(() -> service.addQuestion(2, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Questions questions3 = Assertions.assertDoesNotThrow(() -> service.addQuestion(3, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Questions questions4 = Assertions.assertDoesNotThrow(() -> service.addQuestion(4, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Questions questions5 = Assertions.assertDoesNotThrow(() -> service.addQuestion(5, \"vad heter jag\", new String[]{\"David\", \"Dennis\", \"Douglas\"}, \"Konstantin\"));\r\n        Mockito.when(repo.getAllQuestions()).thenReturn(List.of(questions1, questions2, questions3, questions4, questions5));\r\n        Collection<Questions> questionsList = service.getAllQuestions();\r\n        Assertions.assertTrue(questionsList.containsAll(List.of(questions1, questions2, questions3, questions4, questions5)));\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/ServiceTest.java b/src/test/java/ServiceTest.java
+--- a/src/test/java/ServiceTest.java	(revision 1a92ef60e06e41b896aa8e42217784e84b9a9038)
++++ b/src/test/java/ServiceTest.java	(date 1667396577745)
+@@ -7,15 +7,10 @@
+ import org.junit.jupiter.api.BeforeEach;
+ import org.junit.jupiter.api.DisplayName;
+ import org.junit.jupiter.api.Test;
+-import org.junit.jupiter.params.provider.Arguments;
+-import org.junit.jupiter.params.provider.MethodSource;
+-import org.mockito.Mock;
+ import org.mockito.Mockito;
+-
+ import java.util.Collection;
+ import java.util.List;
+-import java.util.Optional;
+-import java.util.stream.Stream;
++
+ 
+ public class ServiceTest {
+ 
+@@ -68,13 +63,13 @@
+     @Test
+     @DisplayName("Delete by id")
+     void deleteById() throws DoesNotExistException {
+-        // given
++
+         int id = 1;
+         Questions questions = new Questions(id,"1234",new String[]{"1","2","3"},"4");
+         Mockito.when(repo.getQuestion(id)).thenReturn(questions);
+-        //when
++
+         Questions removed = Assertions.assertDoesNotThrow(() -> service.delete(id));
+-        //then
++
+         Mockito.verify(repo).delete(id);
+         Assertions.assertNotNull(removed);
+         Assertions.assertEquals(id,removed.getId());
+Index: src/main/java/org/example/InMemory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example;\r\n\r\nimport org.example.exceptions.DoesNotExistException;\r\n\r\nimport java.util.Collection;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.Optional;\r\n\r\npublic class InMemory implements QuestionRepo{\r\n\r\n    private Map<Integer,Questions> data = new HashMap<>();\r\n\r\n    @Override\r\n    public Optional<Questions> add(Questions questions) {\r\n        if(questions == null){\r\n            throw new NullPointerException(\"question can not be null\");\r\n        }\r\n        data.put(questions.getId(), questions);\r\n        return Optional.ofNullable(questions);\r\n    }\r\n\r\n    @Override\r\n    public Questions delete(Integer id) throws DoesNotExistException {\r\n\r\n         if(id == null) {\r\n            throw new NullPointerException(\"can't remove question with id null\");\r\n        }\r\n         else if(!data.containsKey(id)){\r\n            throw new DoesNotExistException(\"question do not exist\");\r\n        }\r\n\r\n        //commit already solve this problem before test\r\n        Questions toRemove = data.get(id);\r\n        data.remove(id);\r\n        return toRemove;\r\n    }\r\n\r\n    @Override\r\n    public Questions getQuestion(Integer id) throws DoesNotExistException {\r\n        if (id == null) {\r\n            throw new NullPointerException(\"Can't get question with ID NULL\");\r\n        } else if (!data.containsKey(id)) {\r\n            throw new DoesNotExistException(\"Question with id \" + id + \" does not exist.\");\r\n        }\r\n        Questions value = data.get(id);\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public Collection<Questions> getAllQuestions() {\r\n        /* No implementation for empty list is needed */\r\n        return this.data.values();\r\n    }\r\n\r\n    @Override\r\n    public String update(Integer id) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public int count() {\r\n        return data.size();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/InMemory.java b/src/main/java/org/example/InMemory.java
+--- a/src/main/java/org/example/InMemory.java	(revision 1a92ef60e06e41b896aa8e42217784e84b9a9038)
++++ b/src/main/java/org/example/InMemory.java	(date 1667396580441)
+@@ -9,7 +9,7 @@
+ 
+ public class InMemory implements QuestionRepo{
+ 
+-    private Map<Integer,Questions> data = new HashMap<>();
++    private final Map<Integer,Questions> data = new HashMap<>();
+ 
+     @Override
+     public Optional<Questions> add(Questions questions) {
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"45fa8f5a-415a-4da7-94f5-68cdbe3436b0\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_13_53__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_13_53__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_14_39__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_14_39__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/example/Service.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/example/Service.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/ServiceTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/ServiceTest.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Gte3wq7pU2F62Wpro4JzVM5kka\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"D:/JavaUtvecklare skolan/java programering skola/TDD/grupp2/TDD_GroupProject\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\" selected=\"JUnit.ServiceTest.getAllQuestions\">\r\n    <configuration name=\"All in TDD_GroupProject\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TDD_GroupProject\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"TEST_OBJECT\" value=\"package\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ServiceTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TDD_GroupProject\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ServiceTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ServiceTest.addQuestionUsingServiceClass\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TDD_GroupProject\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ServiceTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"addQuestionUsingServiceClass\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ServiceTest.deleteThrowNotExist\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TDD_GroupProject\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ServiceTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"deleteThrowNotExist\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ServiceTest.getAllQuestions\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"TDD_GroupProject\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ServiceTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"getAllQuestions\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.ServiceTest.getAllQuestions\" />\r\n        <item itemvalue=\"JUnit.All in TDD_GroupProject\" />\r\n        <item itemvalue=\"JUnit.ServiceTest.addQuestionUsingServiceClass\" />\r\n        <item itemvalue=\"JUnit.ServiceTest\" />\r\n        <item itemvalue=\"JUnit.ServiceTest.deleteThrowNotExist\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"45fa8f5a-415a-4da7-94f5-68cdbe3436b0\" name=\"Changes\" comment=\"\" />\r\n      <created>1667212114142</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1667212114142</updated>\r\n      <workItem from=\"1667212115823\" duration=\"650000\" />\r\n      <workItem from=\"1667213003503\" duration=\"899000\" />\r\n      <workItem from=\"1667289790439\" duration=\"526000\" />\r\n      <workItem from=\"1667376236211\" duration=\"3344000\" />\r\n    </task>\r\n    <task id=\"LOCAL−00001\" summary=\"Initial empty repository\">\r\n      <created>1667212171310</created>\r\n      <option name=\"number\" value=\"LOCAL−00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00001\" />\r\n      <updated>1667212171310</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00002\" summary=\"Initial empty repository workspace.xml\">\r\n      <created>1667212466703</created>\r\n      <option name=\"number\" value=\"LOCAL−00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00002\" />\r\n      <updated>1667212466703</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00003\" summary=\"Initial empty repository workspace.xml\">\r\n      <created>1667212527350</created>\r\n      <option name=\"number\" value=\"LOCAL−00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00003\" />\r\n      <updated>1667212527350</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00004\" summary=\"first implementation commit(add question)\">\r\n      <created>1667218591838</created>\r\n      <option name=\"number\" value=\"LOCAL−00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00004\" />\r\n      <updated>1667218591838</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00005\" summary=\" second test commit(add question)\">\r\n      <created>1667220574112</created>\r\n      <option name=\"number\" value=\"LOCAL−00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00005\" />\r\n      <updated>1667220574112</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00006\" summary=\"first test commit (get questions)\">\r\n      <created>1667221363122</created>\r\n      <option name=\"number\" value=\"LOCAL−00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00006\" />\r\n      <updated>1667221363122</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00007\" summary=\"first implementation commit (get questions)\">\r\n      <created>1667221506221</created>\r\n      <option name=\"number\" value=\"LOCAL−00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00007\" />\r\n      <updated>1667221506221</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00008\" summary=\"second test commit (get questions)\">\r\n      <created>1667221875343</created>\r\n      <option name=\"number\" value=\"LOCAL−00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00008\" />\r\n      <updated>1667221875343</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00009\" summary=\"second implementation commit (get questions)\">\r\n      <created>1667222085936</created>\r\n      <option name=\"number\" value=\"LOCAL−00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00009\" />\r\n      <updated>1667222085936</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00010\" summary=\"First test commit (get all questions).\">\r\n      <created>1667223318156</created>\r\n      <option name=\"number\" value=\"LOCAL−00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00010\" />\r\n      <updated>1667223318156</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00011\" summary=\"First implementation commit (get all questions).\">\r\n      <created>1667223425626</created>\r\n      <option name=\"number\" value=\"LOCAL−00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00011\" />\r\n      <updated>1667223425626</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00012\" summary=\"first test commit (delete question)\">\r\n      <created>1667224341518</created>\r\n      <option name=\"number\" value=\"LOCAL−00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00012\" />\r\n      <updated>1667224341518</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00013\" summary=\"first implementation commit (delete question)\">\r\n      <created>1667224575452</created>\r\n      <option name=\"number\" value=\"LOCAL−00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00013\" />\r\n      <updated>1667224575452</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00014\" summary=\"second test commit (delete question)\">\r\n      <created>1667224907880</created>\r\n      <option name=\"number\" value=\"LOCAL−00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00014\" />\r\n      <updated>1667224907880</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00015\" summary=\"second implementation commit (delete question)\">\r\n      <created>1667224958219</created>\r\n      <option name=\"number\" value=\"LOCAL−00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00015\" />\r\n      <updated>1667224958219</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00016\" summary=\"third test commit (delete question)\">\r\n      <created>1667225139239</created>\r\n      <option name=\"number\" value=\"LOCAL−00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00016\" />\r\n      <updated>1667225139239</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00017\" summary=\"four test commit (delete question)\">\r\n      <created>1667225659167</created>\r\n      <option name=\"number\" value=\"LOCAL−00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00017\" />\r\n      <updated>1667225659167</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00018\" summary=\"first service test commit (add question)\">\r\n      <created>1667291202246</created>\r\n      <option name=\"number\" value=\"LOCAL−00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00018\" />\r\n      <updated>1667291202246</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00019\" summary=\"first service implementation commit (add question)\">\r\n      <created>1667291400277</created>\r\n      <option name=\"number\" value=\"LOCAL−00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00019\" />\r\n      <updated>1667291400277</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00020\" summary=\"second service test commit (add question)&#10;also added AlreadyExistsException.java\">\r\n      <created>1667292037536</created>\r\n      <option name=\"number\" value=\"LOCAL−00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00020\" />\r\n      <updated>1667292037536</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00021\" summary=\"second service implementation commit (add question)\">\r\n      <created>1667292275489</created>\r\n      <option name=\"number\" value=\"LOCAL−00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00021\" />\r\n      <updated>1667292275489</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00022\" summary=\"first test commit (get question)\">\r\n      <created>1667294138711</created>\r\n      <option name=\"number\" value=\"LOCAL−00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00022\" />\r\n      <updated>1667294138711</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00023\" summary=\"first implementation commit (get question)\">\r\n      <created>1667294880829</created>\r\n      <option name=\"number\" value=\"LOCAL−00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00023\" />\r\n      <updated>1667294880829</updated>\r\n    </task>\r\n    <task id=\"LOCAL−00024\" summary=\"second test commit (get question)\">\r\n      <created>1667295644595</created>\r\n      <option name=\"number\" value=\"LOCAL−00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL−00024\" />\r\n      <updated>1667295644595</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"25\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Initial empty repository\" />\r\n    <MESSAGE value=\"Initial empty repository workspace.xml\" />\r\n    <MESSAGE value=\"first implementation commit(add question)\" />\r\n    <MESSAGE value=\" second test commit(add question)\" />\r\n    <MESSAGE value=\"first test commit (get questions)\" />\r\n    <MESSAGE value=\"first implementation commit (get questions)\" />\r\n    <MESSAGE value=\"second test commit (get questions)\" />\r\n    <MESSAGE value=\"second implementation commit (get questions)\" />\r\n    <MESSAGE value=\"First test commit (get all questions).\" />\r\n    <MESSAGE value=\"First implementation commit (get all questions).\" />\r\n    <MESSAGE value=\"first test commit (delete question)\" />\r\n    <MESSAGE value=\"first implementation commit (delete question)\" />\r\n    <MESSAGE value=\"second test commit (delete question)\" />\r\n    <MESSAGE value=\"second implementation commit (delete question)\" />\r\n    <MESSAGE value=\"third test commit (delete question)\" />\r\n    <MESSAGE value=\"four test commit (delete question)\" />\r\n    <MESSAGE value=\"four implementation commit (delete question)\" />\r\n    <MESSAGE value=\"first service test commit (add question)\" />\r\n    <MESSAGE value=\"first service implementation commit (add question)\" />\r\n    <MESSAGE value=\"second service test commit (add question)&#10;also added AlreadyExistsException.java\" />\r\n    <MESSAGE value=\"second service implementation commit (add question)\" />\r\n    <MESSAGE value=\"first test commit (get question)\" />\r\n    <MESSAGE value=\"first implementation commit (get question)\" />\r\n    <MESSAGE value=\"second test commit (get question)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"second test commit (get question)\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 1a92ef60e06e41b896aa8e42217784e84b9a9038)
++++ b/.idea/workspace.xml	(date 1667398855990)
+@@ -4,11 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_13_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_13_53__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_14_39__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-10-31_14_39__Changes_.xml" afterDir="false" />
++    <list default="true" id="45fa8f5a-415a-4da7-94f5-68cdbe3436b0" name="Changes" comment="first test service commit (delete question)">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Service.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/InMemory.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/ServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServiceTest.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -42,19 +40,19 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "D:/JavaUtvecklare skolan/java programering skola/TDD/grupp2/TDD_GroupProject",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;D:/JavaUtvecklare skolan/java programering skola/TDD/grupp2/TDD_GroupProject&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+   }
+-}]]></component>
+-  <component name="RunManager" selected="JUnit.ServiceTest.getAllQuestions">
++}</component>
++  <component name="RunManager" selected="JUnit.ControllerTests.serviceAddQuestionDoesNotThrow">
+     <configuration name="All in TDD_GroupProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TDD_GroupProject" />
+       <option name="PACKAGE_NAME" value="" />
+@@ -63,30 +61,30 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="ControllerTests.serviceAddQuestionDoesNotThrow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TDD_GroupProject" />
+       <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="ServiceTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="MAIN_CLASS_NAME" value="ControllerTests" />
++      <option name="METHOD_NAME" value="serviceAddQuestionDoesNotThrow" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ServiceTest.addQuestionUsingServiceClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="ServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TDD_GroupProject" />
+       <option name="PACKAGE_NAME" value="" />
+       <option name="MAIN_CLASS_NAME" value="ServiceTest" />
+-      <option name="METHOD_NAME" value="addQuestionUsingServiceClass" />
+-      <option name="TEST_OBJECT" value="method" />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ServiceTest.deleteThrowNotExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="ServiceTest.addQuestionUsingServiceClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="TDD_GroupProject" />
+       <option name="PACKAGE_NAME" value="" />
+       <option name="MAIN_CLASS_NAME" value="ServiceTest" />
+-      <option name="METHOD_NAME" value="deleteThrowNotExist" />
++      <option name="METHOD_NAME" value="addQuestionUsingServiceClass" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+@@ -104,11 +102,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.ControllerTests.serviceAddQuestionDoesNotThrow" />
+         <item itemvalue="JUnit.ServiceTest.getAllQuestions" />
+         <item itemvalue="JUnit.All in TDD_GroupProject" />
+         <item itemvalue="JUnit.ServiceTest.addQuestionUsingServiceClass" />
+         <item itemvalue="JUnit.ServiceTest" />
+-        <item itemvalue="JUnit.ServiceTest.deleteThrowNotExist" />
+       </list>
+     </recent_temporary>
+   </component>
